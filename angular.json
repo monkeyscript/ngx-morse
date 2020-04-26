@@ -120,6 +120,41 @@
           }
         }
       }
+    },
+    "ngx-morse": {
+      "projectType": "library",
+      "root": "projects/ngx-morse",
+      "sourceRoot": "projects/ngx-morse/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ngx-morse/tsconfig.lib.json",
+            "project": "projects/ngx-morse/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-morse/src/test.ts",
+            "tsConfig": "projects/ngx-morse/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-morse/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-morse/tsconfig.lib.json",
+              "projects/ngx-morse/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }},
   "defaultProject": "ngx-morse-ws"
 }

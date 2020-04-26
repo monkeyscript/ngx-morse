@@ -17,7 +17,15 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ngx-morse": [
+        "dist/ngx-morse"
+      ],
+      "ngx-morse/*": [
+        "dist/ngx-morse/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
