@@ -1,3 +1,4 @@
+// JSON representing the morse code chart
 export const Dictionary = {
   'A': '.-',
   'B': '-...',
