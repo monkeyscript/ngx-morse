@@ -27,14 +27,17 @@ export class AppComponent implements OnInit {
     this.encodeOutput = '';
     this.decodeOutput = '';
 
+    console.log(this.morse.encode('GEEKS-FOR-GEEKS'))
+    console.log(this.morse.decode(this.morse.encode('GEEKS-FOR-GEEKS')))
+
   }
 
   encode(){
-    this.morse.encode();
+    this.encodeOutput = this.morse.encode(this.encodeInput);
   }
 
   decode(){
-    this.morse.decode();
+    this.decodeOutput = this.morse.decode(this.decodeInput);
   }
 
 }
