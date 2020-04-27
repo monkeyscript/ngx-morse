@@ -125,7 +125,7 @@
       "projectType": "library",
       "root": "projects/ngx-morse",
       "sourceRoot": "projects/ngx-morse/src",
-      "prefix": "lib",
+      "prefix": "",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",

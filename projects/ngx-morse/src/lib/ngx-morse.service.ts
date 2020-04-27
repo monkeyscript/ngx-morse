@@ -6,4 +6,19 @@ import { Injectable } from '@angular/core';
 export class NgxMorseService {
 
   constructor() { }
+
+  //
+  // Encode function : string to morse
+  //
+  encode() {
+    console.log('encode');
+  }
+
+  //
+  // Decode function : morse to string
+  //
+  decode() {
+    console.log('decode');
+  }
+
 }
