@@ -9,7 +9,7 @@ Demo :
 Using npm :
 
 ```
-Not yet deployed
+$ Not deployed
 ```
 
 ## Usage
@@ -57,3 +57,6 @@ Apache-2.0. Please see the [license file](https://github.com/monkeyscript/ngx-mo
 
 - Workspace app
 - Lib cleanup
+- Special characters
+- Favicon
+- Independent test

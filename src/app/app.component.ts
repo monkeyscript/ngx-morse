@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgxMorseService } from '../../projects/ngx-morse/src/lib/ngx-morse.service'
+import { NgxMorseService } from 'ngx-morse'
 
 @Component({
   selector: 'app-root',
@@ -27,8 +27,8 @@ export class AppComponent implements OnInit {
     this.encodeOutput = '';
     this.decodeOutput = '';
 
-    console.log(this.morse.encode('GEEKS-FOR-GEEKS'))
-    console.log(this.morse.decode(this.morse.encode('GEEKS-FOR-GEEKS')))
+    console.log(this.morse.encode('Hello world!'))
+    console.log(this.morse.decode(this.morse.encode('Hello world!')))
 
   }
 
