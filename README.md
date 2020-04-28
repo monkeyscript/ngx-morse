@@ -14,7 +14,7 @@ Not yet deployed
 
 ## Usage
 
-Import and use `NgxMorseService` in your component.
+Import and use `NgxMorseService` in your component. It's that simple :)
 
 ``` 
 import { NgxMorseService } from 'ngx-morse';
@@ -48,6 +48,10 @@ export class YourComponent {
 ## Issues & Contributions
 
 For a new feature, create an issue [here](https://github.com/monkeyscript/ngx-morse/issues). Open to all contributions :)
+
+## License 
+
+Apache-2.0. Please see the [license file](https://github.com/monkeyscript/ngx-morse/blob/master/LICENSE) for more information.
 
 ## Todo
 
