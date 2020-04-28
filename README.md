@@ -1,31 +1,53 @@
 # Ngx-Morse
 
-ngx-morse is a morse code encoder and decoder for Angluar.
+A simple morse code encoder and decoder for Angluar.
+
+Demo :
 
 ## Installation
 
 Using npm :
 
 ```
-$ Not yet deployed
+Not yet deployed
 ```
 
 ## Usage
 
-Not yet deployed
+Import and use `NgxMorseService` in your component.
 
-## Issues
+``` 
+import { NgxMorseService } from 'ngx-morse';
+ 
+@Component({...})
 
-Please create an issue [here](https://github.com/monkeyscript/ngx-morse/issues)
+export class YourComponent {
+  
+  constructor(private morse: NgxMorseService) {}
+ 
+  encode() {
+    let encoded = this.morse.encode('Hello world!');
+    //
+  }
 
-## Contributions
+  decode() {
+    let decoded = this.morse.decode('Hello world!');
+    // 
+  }
 
-Open to all contributions :)
+}
 
-## License
+```
 
-Apache-2.0. Please see [license file](https://github.com/monkeyscript/ngx-morse/blob/master/LICENSE) for more information.
+## Methods
 
+- **encode()** : Takes a text as input and returns its morse code.
+
+- **decode()** : Takes a morse code as input and returns its text value.
+
+## Issues & Contributions
+
+For a new feature, create an issue [here](https://github.com/monkeyscript/ngx-morse/issues). Open to all contributions :)
 
 ## Todo
 
