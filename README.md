@@ -2,7 +2,7 @@
 
 A simple morse code encoder and decoder for Angluar.
 
-Demo :
+Demo : [https://monkeyscript.github.io/ngx-morse/](https://monkeyscript.github.io/ngx-morse/)
 
 ## Installation
 
@@ -16,7 +16,7 @@ $ Not deployed
 
 Import and use `NgxMorseService` in your component. It's that simple :)
 
-``` 
+```typescript 
 import { NgxMorseService } from 'ngx-morse';
  
 @Component({...})
@@ -55,8 +55,9 @@ Apache-2.0. Please see the [license file](https://github.com/monkeyscript/ngx-mo
 
 ## Todo
 
-- Workspace app
+- Demo app
 - Lib cleanup
 - Special characters
 - Favicon
 - Independent test
+- Font
