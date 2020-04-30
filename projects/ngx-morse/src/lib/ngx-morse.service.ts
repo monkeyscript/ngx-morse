@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Dictionary } from './utils/dictionary';
+import { Dictionary } from './dictionary';
 
 @Injectable({
   providedIn: 'root'
@@ -17,14 +17,16 @@ export class NgxMorseService {
 
     for(let letter of message){
       
-      if(letter!=' ') {
-        // Looks up the dictionary and adds the correspponding morse code 
-        // along with a space to separate morse codes for different characters
-        cipher += Dictionary[letter.toUpperCase()];
-      } else {
-        // 1 space indicates different characters and 2 indicates different words
-        cipher += ' ';
-      }
+      // Looks up the dictionary and adds the correspponding morse code 
+      // along with a space to separate morse codes for different characters
+      cipher += Dictionary[letter.toLowerCase()];
+      
+      // if(letter!=' ') {
+      //   console.log(letter,Dictionary[letter.toLowerCase()])
+      // } else {
+      //   // 1 space indicates different characters and 2 indicates different words
+      //   cipher += ' ';
+      // }
 
       cipher += ' ';
 

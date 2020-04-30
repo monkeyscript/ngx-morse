@@ -1,4 +1,4 @@
-# Ngx-Morse
+# Ngx-Morse (Work in progress)
 
 A simple morse code encoder and decoder for Angluar.
 
@@ -61,3 +61,5 @@ Apache-2.0. Please see the [license file](https://github.com/monkeyscript/ngx-mo
 - Favicon
 - Independent test
 - Font
+- Readme cleanup
+- GH pages
