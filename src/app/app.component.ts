@@ -9,6 +9,8 @@ import { NgxMorseService } from 'ngx-morse'
 export class AppComponent implements OnInit {
   title = 'ngx-morse-ws';
 
+  mode : string;
+
   encodeInput : string;
   decodeInput : string;
 
@@ -21,23 +23,30 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
 
-    // Init variables 
+    // Init variables
+    this.mode = 'ENCODER'; 
     this.encodeInput = '';
     this.decodeInput = '';
     this.encodeOutput = '';
     this.decodeOutput = '';
 
-    console.log(this.morse.encode('Hello world!'))
-    console.log(this.morse.decode(this.morse.encode('Hello world!')))
-
   }
 
   encode(){
+    this.encodeOutput = '';
     this.encodeOutput = this.morse.encode(this.encodeInput);
   }
 
   decode(){
+    this.decodeOutput = '';
     this.decodeOutput = this.morse.decode(this.decodeInput);
+  }
+
+  reset(){
+    this.encodeInput = '';
+    this.encodeOutput = '';
+    this.decodeInput = '';
+    this.decodeOutput = '';
   }
 
 }

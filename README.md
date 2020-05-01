@@ -26,13 +26,13 @@ export class YourComponent {
   constructor(private morse: NgxMorseService) {}
  
   encode() {
-    let encoded = this.morse.encode('Hello world!');
-    //
+    let encoded = this.morse.encode('hello world!');
+    // .... . .-.. .-.. --- / .-- --- .-. .-.. -.. -.-.--
   }
 
   decode() {
-    let decoded = this.morse.decode('Hello world!');
-    // 
+    let decoded = this.morse.decode('.... . .-.. .-.. --- / .-- --- .-. .-.. -.. -.-.--');
+    // hello world!
   }
 
 }
@@ -63,3 +63,4 @@ Apache-2.0. Please see the [license file](https://github.com/monkeyscript/ngx-mo
 - Font
 - Readme cleanup
 - GH pages
+- Output copy
