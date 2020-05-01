@@ -1,6 +1,6 @@
 # Ngx-Morse (Work in progress)
 
-A simple morse code encoder and decoder for Angluar.
+A simple morse code encoder and decoder library for Angluar.
 
 Demo : [https://monkeyscript.github.io/ngx-morse/](https://monkeyscript.github.io/ngx-morse/)
 
@@ -55,12 +55,9 @@ Apache-2.0. Please see the [license file](https://github.com/monkeyscript/ngx-mo
 
 ## Todo
 
-- Demo app
 - Lib cleanup
 - Special characters
-- Favicon
 - Independent test
-- Font
 - Readme cleanup
-- GH pages
 - Output copy
+- GH pages
