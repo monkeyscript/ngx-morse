@@ -1,10 +1,8 @@
 import { NgModule } from '@angular/core';
-import { NgxMorseComponent } from './ngx-morse.component';
 
 @NgModule({
-  declarations: [NgxMorseComponent],
-  imports: [
-  ],
-  exports: [NgxMorseComponent]
+  declarations: [],
+  imports: [],
+  exports: []
 })
 export class NgxMorseModule { }

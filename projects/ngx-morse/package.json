@@ -1,16 +1,27 @@
 {
   "name": "ngx-morse",
-  "version": "0.0.1",
+  "version": "1.0.2",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/monkeyscript/ngx-morse"
+  },
+  "homepage": "https://monkeyscript.github.io/ngx-morse/",
+  "description": "A simple morse code encoder and decoder library for Angluar.",
+  "keywords": [
+    "angular", 
+    "ngx-morse", 
+    "morse", 
+    "morse code", 
+    "morse alphabet", 
+    "morse converter", 
+    "morse encoder", 
+    "morse decoder", 
+    "morse translator", 
+    "morse characters"
+  ],
   "peerDependencies": {
     "@angular/common": "^8.2.14",
     "@angular/core": "^8.2.14"
-  },
-  "description": "A simple morse code encoder and decoder library for Angluar.",
-  "keywords" :["angular","ngx-morse","morse","morse code","morse alphabet","morse converter","morse encoder","morse decoder","morse translator","morse characters"],
-  "license" : "Apache-2.0",
-  "repository": {
-    "type" : "git",
-    "url" : "https://github.com/monkeyscript/ngx-morse"
-  },
-  "homepage" :"https://monkeyscript.github.io/ngx-morse/"
+  }
 }
