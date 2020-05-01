@@ -51,3 +51,16 @@ body {
     margin-right: 1.5rem !important;
     margin-left: 1.5rem !important;
 }
+
+.code{
+  background-color: #eeeeee;
+  padding: 1rem;
+  border-radius: 4px;
+  overflow-x: auto;
+  font-size: 0.9rem;
+  color: #3c3c3c;
+}
+
+h4{
+  color: #3c3c3c;
+}
