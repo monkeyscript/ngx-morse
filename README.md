@@ -2,7 +2,7 @@
 
 ![npm](https://img.shields.io/npm/v/ngx-morse)
 
-A simple morse code encoder and decoder library for Angluar.
+A simple morse code encoder and decoder for Angluar.
 
 Demo : [https://monkeyscript.github.io/ngx-morse/](https://monkeyscript.github.io/ngx-morse/)
 
