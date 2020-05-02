@@ -43,17 +43,17 @@ export class AppComponent implements OnInit {
 
 export class YourComponent {
   
-  constructor(private morse: NgxMorseService) {}
+    constructor(private morse: NgxMorseService) {}
   
-  encode() {
-    let encoded = this.morse.encode('hello world!');
-    // .... . .-.. .-.. --- / .-- --- .-. .-.. -.. -.-.--
-  }
+    encode() {
+        let encoded = this.morse.encode('hello world!');
+        // .... . .-.. .-.. --- / .-- --- .-. .-.. -.. -.-.--
+    }
 
-  decode() {
-    let decoded = this.morse.decode('.... . .-.. .-.. --- / .-- --- .-. .-.. -.. -.-.--');
-    // hello world!
-  }
+    decode() {
+        let decoded = this.morse.decode('.... . .-.. .-.. --- / .-- --- .-. .-.. -.. -.-.--');
+        // hello world!
+    }
       
 }`
     }
