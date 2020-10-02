@@ -1,13 +1,11 @@
 import { NgModule } from '@angular/core';
 
-import {
-  MatToolbarModule,
-  MatButtonModule,
-  MatTooltipModule,
-  MatRadioModule,
-  MatFormFieldModule,
-  MatInputModule,
-} from '@angular/material';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   imports: [
