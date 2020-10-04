@@ -9,10 +9,17 @@
     "lib": [
       "dom",
       "es2018"
-    ]
+    ],
+    "paths": {
+      "ngx-morse": [
+        "dist/ngx-morse"
+      ],
+      "ngx-morse/*": [
+        "dist/ngx-morse/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
-    "annotateForClosureCompiler": true,
     "skipTemplateCodegen": true,
     "strictMetadataEmit": true,
     "fullTemplateTypeCheck": true,

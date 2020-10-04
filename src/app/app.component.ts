@@ -29,22 +29,22 @@ export class AppComponent implements OnInit {
   ngOnInit() {
 
     // Init variables
-    this.mode = 'ENCODER'; 
+    this.mode = 'ENCODER';
     this.encodeInput = '';
     this.decodeInput = '';
     this.encodeOutput = '';
     this.decodeOutput = '';
-    
+
     this.code = {
       installation : 'npm i ngx-morse',
       usage : `import { NgxMorseService } from 'ngx-morse';
- 
+
 @Component({...})
 
 export class YourComponent {
-  
+
     constructor(private morse: NgxMorseService) {}
-  
+
     encode() {
         let encoded = this.morse.encode('hello world!');
         // .... . .-.. .-.. --- / .-- --- .-. .-.. -.. -.-.--
@@ -54,7 +54,7 @@ export class YourComponent {
         let decoded = this.morse.decode('.... . .-.. .-.. --- / .-- --- .-. .-.. -.. -.-.--');
         // hello world!
     }
-      
+
 }`
     }
 
