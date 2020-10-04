@@ -8,6 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "test_lib": "ng test ngx-morse",
     "build_lib": "ng build ngx-morse",
     "copy-license": "copy .\\LICENSE .\\dist\\ngx-morse",
     "copy-readme": "copy .\\README.md .\\dist\\ngx-morse",

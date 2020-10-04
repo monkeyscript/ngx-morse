@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Dictionary } from './dictionary';
+import InvalidInputError from './exceptions/invalid-input';
 
 @Injectable({
   providedIn: 'root'
@@ -16,11 +17,15 @@ export class NgxMorseService {
     let cipher : string = '';
 
     for(let letter of message){
-      
-      // Looks up the dictionary and adds the correspponding morse code 
+
+      // Looks up the dictionary and adds the correspponding morse code
       // along with a space to separate morse codes for different characters
+      if (!(letter.toLowerCase() in Dictionary)) {
+        throw new InvalidInputError(InvalidInputError.INVALID_INPUT);
+      }
+
       cipher += Dictionary[letter.toLowerCase()];
-      
+
       // if(letter!=' ') {
       //   console.log(letter,Dictionary[letter.toLowerCase()])
       // } else {
@@ -68,9 +73,13 @@ export class NgxMorseService {
           // Adding space to separate words 
           decipher += ' '
         } else {
-          // Accessing the keys using their values 
-          decipher += Object.keys(Dictionary).find(key => Dictionary[key] === citext);
-          citext = ''; 
+          // Accessing the keys using their values
+	   const letterDecodedFromMorseCode = Object.keys(Dictionary).find(key => Dictionary[key] === citext);
+          if (!letterDecodedFromMorseCode) {
+            throw new InvalidInputError(InvalidInputError.INVALID_MORSE_INPUT);
+          }
+          decipher += letterDecodedFromMorseCode;
+          citext = '';
         }
       
       }
