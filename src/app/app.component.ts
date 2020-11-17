@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgxMorseService } from 'ngx-morse'
+import { NgxMorseService } from '../../projects/ngx-morse/src/lib/ngx-morse.service'
 
 @Component({
   selector: 'app-root',
