@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "test_lib": "ng test ngx-morse",
-    "build_lib": "ng build ngx-morse",
+    "build_lib": "ng build ngx-morse --configuration production",
     "copy-license": "copy .\\LICENSE .\\dist\\ngx-morse",
     "copy-readme": "copy .\\README.md .\\dist\\ngx-morse",
     "copy-files": "npm run copy-license && npm run copy-readme",
