@@ -74,7 +74,7 @@ export class NgxMorseService {
           decipher += ' '
         } else {
           // Accessing the keys using their values
-	   const letterDecodedFromMorseCode = Object.keys(Dictionary).find(key => Dictionary[key] === citext);
+	        const letterDecodedFromMorseCode = Object.keys(Dictionary).find(key => Dictionary[key] === citext);
           if (!letterDecodedFromMorseCode) {
             throw new InvalidInputError(InvalidInputError.INVALID_MORSE_INPUT);
           }
