@@ -21,10 +21,10 @@
     "morse characters"
   ],
   "dependencies": {
-    "tslib": "^2.0.0"
+    "tslib": "^2.3.0"
   },
   "peerDependencies": {
-    "@angular/common": "^11.0.0",
-    "@angular/core": "^11.0.0"
+    "@angular/common": "^13.0.3",
+    "@angular/core": "^13.0.3"
   }
 }

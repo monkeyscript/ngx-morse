@@ -5,7 +5,8 @@
 
 body {
   margin: 0;
-  background-color: #f7f7f7;
+  background-color: #303030;
+  color: #ffffff;
 }
 
 .align-center{
@@ -53,14 +54,18 @@ body {
 }
 
 .code{
-  background-color: #eeeeee;
+  background-color: #ffffff;
   padding: 1rem;
   border-radius: 4px;
   overflow-x: auto;
   font-size: 0.9rem;
-  color: #3c3c3c;
+  color: #303030;
 }
 
 h4{
-  color: #3c3c3c;
+  color: #ffffffb3;
+}
+
+a {
+  color: #e91e63;
 }
