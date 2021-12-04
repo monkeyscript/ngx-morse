@@ -1,6 +1,8 @@
 # Ngx-Morse
 
 ![npm](https://img.shields.io/npm/v/ngx-morse)
+![npm bundle size](https://img.shields.io/bundlephobia/min/ngx-morse)
+![NPM](https://img.shields.io/npm/l/ngx-morse)
 
 A simple morse code encoder and decoder for Angular.
 
