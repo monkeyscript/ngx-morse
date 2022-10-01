@@ -168,5 +168,8 @@
       }
     }
   },
-  "defaultProject": "ngx-morse-ws"
+  "defaultProject": "ngx-morse-ws",
+  "cli": {
+    "analytics": false
+  }
 }
