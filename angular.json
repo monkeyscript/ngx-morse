@@ -168,7 +168,6 @@
       }
     }
   },
-  "defaultProject": "ngx-morse-ws",
   "cli": {
     "analytics": false
   }
