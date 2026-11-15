@@ -7,7 +7,7 @@
   <br><br>
 
   <div class="align-center">
-    A simple morse code encoder and decoder library for Angular.
+    A simple morse code encoder, decoder, and audio synthesizer library for Angular.
   </div>
 
   <br><br>
@@ -54,6 +54,15 @@
       <mat-label>Output</mat-label>
       <textarea matInput [(ngModel)]="decodeOutput" rows="4" readonly aria-label="Decoded text output"></textarea>
     </mat-form-field>
+  </div>
+
+  <div class="align-center" style="margin: 10px 0 25px 0;">
+    <button mat-raised-button color="accent" (click)="playMorseAudio()" [disabled]="isAudioPlaying" style="margin-right: 12px;">
+      Play Audio
+    </button>
+    <button mat-stroked-button color="warn" (click)="stopMorseAudio()" [disabled]="!isAudioPlaying">
+      Stop Audio
+    </button>
   </div>
 
   <h4>Installation</h4>

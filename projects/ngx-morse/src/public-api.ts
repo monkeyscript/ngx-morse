@@ -3,6 +3,7 @@
  */
 
 export * from './lib/ngx-morse.service';
+export * from './lib/ngx-morse-audio.service';
 export * from './lib/ngx-morse.module';
 export * from './lib/morse-encode.pipe';
 export * from './lib/morse-decode.pipe';

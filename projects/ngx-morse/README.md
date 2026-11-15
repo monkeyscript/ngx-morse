@@ -4,7 +4,7 @@
 [![npm downloads](https://img.shields.io/npm/dm/ngx-morse.svg)](https://www.npmjs.com/package/ngx-morse)
 [![license](https://img.shields.io/npm/l/ngx-morse.svg)](https://github.com/monkeyscript/ngx-morse/blob/master/LICENSE)
 
-A lightweight, strongly-typed Morse code encoder and decoder library for Angular. Supports both service-based calls and standalone Angular pipes.
+A lightweight, strongly-typed Morse code encoder, decoder, and audio synthesizer library for Angular. Supports service-based calls, standalone Angular pipes, and Web Audio synthesis.
 
 **Interactive Demo:** [https://monkeyscript.github.io/ngx-morse/](https://monkeyscript.github.io/ngx-morse/)
 
@@ -13,10 +13,11 @@ A lightweight, strongly-typed Morse code encoder and decoder library for Angular
 ## Features
 
 - **Bidirectional Conversion:** Encode plain text to Morse code and decode Morse code back to plain text.
+- **Web Audio Synthesis:** Play audible Morse code tones (`NgxMorseAudioService`) with configurable WPM, frequency, and volume.
 - **Standalone Pipes:** Use `morseEncode` and `morseDecode` directly in Angular templates.
-- **Tree-Shakable:** `"sideEffects": false` with modern ESM partial compilation.
+- **Tree-Shakable:** `"sideEffects": false` — audio synthesis adds 0 bytes for applications only using text conversion.
 - **Wide Angular Compatibility:** Supports Angular 16 through Angular 22+.
-- **Zero Dependencies:** Only peer dependencies on `@angular/core` and `@angular/common`.
+- **Zero Dependencies:** Pure TypeScript relying only on native browser Web Audio and peer dependencies on `@angular/core` and `@angular/common`.
 
 ---
 
@@ -30,7 +31,7 @@ npm install ngx-morse
 
 ## Quick Start
 
-### 1. Using `NgxMorseService`
+### 1. Using `NgxMorseService` (Text Encoding & Decoding)
 
 ```typescript
 import { Component, inject } from '@angular/core';
@@ -57,7 +58,39 @@ export class ExampleComponent {
 }
 ```
 
-### 2. Using Standalone Pipes
+### 2. Using `NgxMorseAudioService` (Audio Synthesis)
+
+```typescript
+import { Component, inject } from '@angular/core';
+import { NgxMorseAudioService } from 'ngx-morse';
+
+@Component({
+  selector: 'app-audio-example',
+  standalone: true,
+  template: `
+    <button (click)="play()">Play Morse</button>
+    <button (click)="stop()" [disabled]="!audio.isPlaying">Stop</button>
+  `
+})
+export class AudioExampleComponent {
+  readonly audio = inject(NgxMorseAudioService);
+
+  async play() {
+    // Accepts either plain text or Morse code directly
+    await this.audio.play('SOS', {
+      wpm: 20,        // Words per minute (default: 20)
+      frequency: 600, // Tone in Hz (default: 600)
+      volume: 0.5     // Volume gain 0.0 - 1.0 (default: 0.5)
+    });
+  }
+
+  stop() {
+    this.audio.stop();
+  }
+}
+```
+
+### 3. Using Standalone Pipes
 
 ```typescript
 import { Component } from '@angular/core';
@@ -78,7 +111,7 @@ import { MorseEncodePipe, MorseDecodePipe } from 'ngx-morse';
 export class PipeExampleComponent {}
 ```
 
-### 3. Using with NgModule (Legacy Applications)
+### 4. Using with NgModule (Legacy Applications)
 
 ```typescript
 import { NgModule } from '@angular/core';
@@ -100,6 +133,14 @@ export class AppModule {}
 | :--- | :--- | :--- | :--- |
 | `encode(message: string)` | `message: string` | `string` | Encodes plain text into Morse code. Characters are separated by a space. Throws `InvalidInputError` on unsupported characters. |
 | `decode(message: string)` | `message: string` | `string` | Decodes a Morse code string back to lower-case plain text. Throws `InvalidInputError` on invalid Morse sequences. |
+
+### `NgxMorseAudioService`
+
+| Method / Property | Parameters | Return Type | Description |
+| :--- | :--- | :--- | :--- |
+| `play(input: string, options?: MorseAudioOptions)` | `input: string`, `options?: MorseAudioOptions` | `Promise<void>` | Synthesizes and plays Morse code audibly using Web Audio. Accepts plain text or Morse code. |
+| `stop()` | None | `void` | Immediately stops any active audio playback. |
+| `isPlaying` | None | `boolean` | Indicates whether audio is currently playing. |
 
 ### Standalone Pipes
 
