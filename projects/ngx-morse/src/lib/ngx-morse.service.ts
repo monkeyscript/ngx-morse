@@ -1,92 +1,77 @@
 import { Injectable } from '@angular/core';
 import { Dictionary } from './dictionary';
-import InvalidInputError from './exceptions/invalid-input';
+import { InvalidInputError } from './exceptions/invalid-input';
+
+// Build inverted dictionary in key order for O(1) Morse -> char lookups
+const reverseDictionary: Record<string, string> = {};
+for (const key of Object.keys(Dictionary)) {
+  const morseVal = Dictionary[key];
+  if (!(morseVal in reverseDictionary)) {
+    reverseDictionary[morseVal] = key;
+  }
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class NgxMorseService {
+  /**
+   * Encodes a plain text string into Morse code.
+   * Characters are separated by a single space.
+   *
+   * @param message The input string to encode.
+   * @returns The encoded Morse code string.
+   * @throws InvalidInputError if an unsupported character is encountered.
+   */
+  encode(message: string): string {
+    if (!message) {
+      return '';
+    }
 
-  constructor() { }
-
-  //
-  // Encoding : text to morse
-  //
-  encode(message : string) :string {
-
-    let cipher : string = '';
-
-    for(let letter of message){
-
-      // Looks up the dictionary and adds the correspponding morse code
-      // along with a space to separate morse codes for different characters
-      if (!(letter.toLowerCase() in Dictionary)) {
+    let cipher = '';
+    for (const letter of message) {
+      const lower = letter.toLowerCase();
+      if (!(lower in Dictionary)) {
         throw new InvalidInputError(InvalidInputError.INVALID_INPUT);
       }
-
-      cipher += Dictionary[letter.toLowerCase()];
-
-      // if(letter!=' ') {
-      //   console.log(letter,Dictionary[letter.toLowerCase()])
-      // } else {
-      //   // 1 space indicates different characters and 2 indicates different words
-      //   cipher += ' ';
-      // }
-
-      cipher += ' ';
-
+      cipher += Dictionary[lower] + ' ';
     }
 
     return cipher;
-
   }
 
-  //
-  // Decoding : morse to text
-  //
-  decode(message : string) :string {
+  /**
+   * Decodes a Morse code string back into plain text.
+   *
+   * @param message The Morse code string to decode.
+   * @returns The decoded plain text string.
+   * @throws InvalidInputError if invalid or corrupted Morse code is encountered.
+   */
+  decode(message: string): string {
+    const formattedMessage = message + ' ';
+    let decipher = '';
+    let citext = '';
+    let spaceCount = 0;
 
-    // Extra space added at the end to access the last morse code 
-    message += ' ';
-  
-    let decipher : string = ''; 
-    let citext : string = '';
-    
-    for(let letter of message) {
-
-      // Check for space 
-      if(letter!=' ') {
-
-        // Counter to keep track of space 
-        var i = 0;
-      
-        // Storing morse code of a single character 
-        citext += letter; 
-
+    for (const letter of formattedMessage) {
+      if (letter !== ' ') {
+        spaceCount = 0;
+        citext += letter;
       } else {
-
-        // If i = 1 that indicates a new character 
-        i += 1;
-      
-        // If i = 2 that indicates a new word 
-        if (i==2) {
-          // Adding space to separate words 
-          decipher += ' '
+        spaceCount += 1;
+        if (spaceCount === 2) {
+          decipher += ' ';
         } else {
-          // Accessing the keys using their values
-	        const letterDecodedFromMorseCode = Object.keys(Dictionary).find(key => Dictionary[key] === citext);
-          if (!letterDecodedFromMorseCode) {
+          const char = reverseDictionary[citext];
+          if (!char) {
             throw new InvalidInputError(InvalidInputError.INVALID_MORSE_INPUT);
           }
-          decipher += letterDecodedFromMorseCode;
+          decipher += char;
           citext = '';
         }
-      
       }
-
     }
-  
+
     return decipher;
   }
-
 }

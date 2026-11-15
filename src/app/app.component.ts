@@ -1,80 +1,74 @@
-import { Component, OnInit } from '@angular/core';
-import { NgxMorseService } from '../../projects/ngx-morse/src/lib/ngx-morse.service'
+import { Component, OnInit, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { MaterialModule } from './material.module';
+import { NgxMorseService } from '../../projects/ngx-morse/src/lib/ngx-morse.service';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
+  imports: [CommonModule, FormsModule, MaterialModule],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
   title = 'ngx-morse-ws';
 
-  mode : string;
+  mode = 'ENCODER';
 
-  encodeInput : string;
-  decodeInput : string;
+  encodeInput = '';
+  decodeInput = '';
 
-  encodeOutput : string;
-  decodeOutput : string;
+  encodeOutput = '';
+  decodeOutput = '';
 
-  code : {
-    installation : string,
-    usage : string
-  };
-
-  constructor(
-    private morse : NgxMorseService
-  ) {}
-
-  ngOnInit() {
-
-    // Init variables
-    this.mode = 'ENCODER';
-    this.encodeInput = '';
-    this.decodeInput = '';
-    this.encodeOutput = '';
-    this.decodeOutput = '';
-
-    this.code = {
-      installation : 'npm i ngx-morse',
-      usage : `import { NgxMorseService } from 'ngx-morse';
+  code = {
+    installation: 'npm i ngx-morse',
+    usage: `import { Component, inject } from '@angular/core';
+import { NgxMorseService } from 'ngx-morse';
 
 @Component({...})
-
 export class YourComponent {
+  private morse = inject(NgxMorseService);
 
-    constructor(private morse: NgxMorseService) {}
+  encode() {
+    const encoded = this.morse.encode('hello world!');
+    // .... . .-.. .-.. --- / .-- --- .-. .-.. -.. -.-.--
+  }
 
-    encode() {
-        let encoded = this.morse.encode('hello world!');
-        // .... . .-.. .-.. --- / .-- --- .-. .-.. -.. -.-.--
-    }
-
-    decode() {
-        let decoded = this.morse.decode('.... . .-.. .-.. --- / .-- --- .-. .-.. -.. -.-.--');
-        // hello world!
-    }
-
+  decode() {
+    const decoded = this.morse.decode('.... . .-.. .-.. --- / .-- --- .-. .-.. -.. -.-.--');
+    // hello world!
+  }
 }`
+  };
+
+  private morse = inject(NgxMorseService);
+
+  ngOnInit() {
+    this.reset();
+  }
+
+  encode() {
+    try {
+      this.encodeOutput = this.morse.encode(this.encodeInput);
+    } catch {
+      this.encodeOutput = 'Error: Invalid input character';
     }
-
   }
 
-  encode(){
-    this.encodeOutput = '';
-    this.encodeOutput = this.morse.encode(this.encodeInput);
+  decode() {
+    try {
+      this.decodeOutput = this.morse.decode(this.decodeInput);
+    } catch {
+      this.decodeOutput = 'Error: Invalid Morse code';
+    }
   }
 
-  decode(){
-    this.decodeOutput = '';
-    this.decodeOutput = this.morse.decode(this.decodeInput);
-  }
-
-  reset(){
+  reset() {
     this.encodeInput = '';
     this.encodeOutput = '';
     this.decodeInput = '';
     this.decodeOutput = '';
   }
-
 }

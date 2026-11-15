@@ -1,6 +1,5 @@
-// JSON representing the morse code chart
-export const Dictionary = {
-  
+// Morse code dictionary mapping characters to Morse code sequences
+export const Dictionary: Record<string, string> = {
   // Letters
   'a': '.-',
   'b': '-...',
@@ -65,5 +64,5 @@ export const Dictionary = {
   '+': '.-.-.',
   '"': '.-..-.',
   '?': '..--..',
-  '/': '-..-.',
-}
+  '/': '-..-.'
+};

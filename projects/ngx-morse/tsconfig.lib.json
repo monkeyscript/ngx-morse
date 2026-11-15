@@ -8,16 +8,8 @@
     "types": [],
     "lib": [
       "dom",
-      "es2018"
-    ],
-    "paths": {
-      "ngx-morse": [
-        "dist/ngx-morse"
-      ],
-      "ngx-morse/*": [
-        "dist/ngx-morse/*"
-      ]
-    }
+      "ES2022"
+    ]
   },
   "angularCompilerOptions": {
     "skipTemplateCodegen": true,

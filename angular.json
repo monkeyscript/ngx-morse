@@ -66,18 +66,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ngx-morse-ws:build"
+            "buildTarget": "ngx-morse-ws:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ngx-morse-ws:build:production"
+              "buildTarget": "ngx-morse-ws:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ngx-morse-ws:build"
+            "buildTarget": "ngx-morse-ws:build"
           }
         },
         "test": {
@@ -93,29 +93,6 @@
               "src/styles.css"
             ],
             "scripts": []
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "tsconfig.app.json",
-              "tsconfig.spec.json",
-              "e2e/tsconfig.json"
-            ],
-            "exclude": ["**/node_modules/**"]
-          }
-        },
-        "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
-          "options": {
-            "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "ngx-morse-ws:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "ngx-morse-ws:serve:production"
-            }
           }
         }
       }
@@ -144,16 +121,6 @@
             "main": "projects/ngx-morse/src/test.ts",
             "tsConfig": "projects/ngx-morse/tsconfig.spec.json",
             "karmaConfig": "projects/ngx-morse/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/ngx-morse/tsconfig.lib.json",
-              "projects/ngx-morse/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**"]
           }
         }
       }

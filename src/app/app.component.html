@@ -15,7 +15,8 @@
   <div class="align-center">
     <mat-radio-group
       [(ngModel)]="mode"
-      (change)="reset()">
+      (change)="reset()"
+      aria-label="Morse mode selector">
       <mat-radio-button [value]="'ENCODER'" class="mx-4">
         Encoder
       </mat-radio-button>
@@ -30,28 +31,28 @@
   <div *ngIf="mode=='ENCODER'">
     <mat-form-field appearance="outline" class="w-100">
       <mat-label>Enter text input!</mat-label>
-      <textarea matInput [(ngModel)]="encodeInput" rows="4" (keyup)="encode()"></textarea>
+      <textarea matInput [(ngModel)]="encodeInput" rows="4" (keyup)="encode()" aria-label="Enter text input to encode"></textarea>
     </mat-form-field>
 
     <br>
 
     <mat-form-field appearance="outline" class="w-100">
       <mat-label>Output</mat-label>
-      <textarea matInput [(ngModel)]="encodeOutput" rows="4" readonly></textarea>
+      <textarea matInput [(ngModel)]="encodeOutput" rows="4" readonly aria-label="Morse code output"></textarea>
     </mat-form-field>
   </div>
 
   <div *ngIf="mode=='DECODER'">
     <mat-form-field appearance="outline" class="w-100">
       <mat-label>Enter code input!</mat-label>
-      <textarea matInput [(ngModel)]="decodeInput" rows="4" (keyup)="decode()"></textarea>
+      <textarea matInput [(ngModel)]="decodeInput" rows="4" (keyup)="decode()" aria-label="Enter Morse code input to decode"></textarea>
     </mat-form-field>
 
     <br>
 
     <mat-form-field appearance="outline" class="w-100">
       <mat-label>Output</mat-label>
-      <textarea matInput [(ngModel)]="decodeOutput" rows="4" readonly></textarea>
+      <textarea matInput [(ngModel)]="decodeOutput" rows="4" readonly aria-label="Decoded text output"></textarea>
     </mat-form-field>
   </div>
 
@@ -66,7 +67,7 @@
   <br>
 
   <div class="align-center">
-    <a matTooltip="Github" target="_blank" href="https://github.com/monkeyscript/ngx-morse">
+    <a matTooltip="Github" aria-label="GitHub Repository" target="_blank" href="https://github.com/monkeyscript/ngx-morse">
       <i class="fa fa-github fa-lg"></i>
     </a>
   </div>
